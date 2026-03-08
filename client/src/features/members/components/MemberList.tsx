@@ -97,7 +97,7 @@ export function MemberList({ tripId }: { tripId: string }) {
                 </Badge>
               )}
               {isOwner && !isMe && member.role !== "owner" && (
-                <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-destructive" onClick={() => handleRemove(member)}>
+                <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:text-destructive" onClick={() => handleRemove(member)}>
                   <UserMinus className="h-4 w-4" />
                 </Button>
               )}

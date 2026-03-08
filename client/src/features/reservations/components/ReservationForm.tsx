@@ -46,13 +46,13 @@ export function AddReservationDialog({ tripId }: { tripId: string }) {
           Add reservation
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Add reservation</DialogTitle>
           <DialogDescription>Add a booking or reservation for this trip.</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="grid gap-4 mt-2">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label>Type</Label>
               <Select name="type" defaultValue="hotel">
@@ -67,7 +67,7 @@ export function AddReservationDialog({ tripId }: { tripId: string }) {
               <Input id="res-title" name="title" required placeholder="Hotel Sunrise" className="h-11" />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label htmlFor="res-provider">Provider</Label>
               <Input id="res-provider" name="provider" placeholder="Booking.com" className="h-11" />
@@ -81,7 +81,7 @@ export function AddReservationDialog({ tripId }: { tripId: string }) {
             <Label htmlFor="res-location">Location</Label>
             <Input id="res-location" name="location" placeholder="123 Main St" className="h-11" />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label htmlFor="res-start">Start</Label>
               <Input id="res-start" name="start_datetime" type="datetime-local" className="h-11" />
@@ -91,7 +91,7 @@ export function AddReservationDialog({ tripId }: { tripId: string }) {
               <Input id="res-end" name="end_datetime" type="datetime-local" className="h-11" />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label htmlFor="res-cost">Cost ($)</Label>
               <Input id="res-cost" name="cost" type="number" step="0.01" min="0" placeholder="0.00" className="h-11" />

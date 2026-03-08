@@ -4,6 +4,7 @@ import {
   DragOverlay,
   closestCorners,
   PointerSensor,
+  TouchSensor,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
@@ -26,6 +27,7 @@ export function ItineraryBoard({ tripId, currencySymbol = "\u20B9" }: { tripId: 
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 5 } }),
   );
 
   const activityMap = useMemo(() => {
@@ -140,7 +142,7 @@ export function ItineraryBoard({ tripId, currencySymbol = "\u20B9" }: { tripId: 
     return (
       <div className="flex gap-4 overflow-x-auto pb-4">
         {Array.from({ length: 3 }).map((_, i) => (
-          <div key={i} className="w-72 shrink-0 rounded-xl border border-border/50 bg-card/50 p-4 space-y-3">
+          <div key={i} className="w-[85vw] sm:w-72 shrink-0 rounded-xl border border-border/50 bg-card/50 p-4 space-y-3">
             <div className="h-5 w-24 rounded bg-muted animate-pulse" />
             <div className="space-y-2">
               <div className="h-16 rounded-lg bg-muted animate-pulse" />

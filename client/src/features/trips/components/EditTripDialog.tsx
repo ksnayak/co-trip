@@ -49,11 +49,11 @@ export function EditTripDialog({ trip }: { trip: Trip }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
+        <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:text-foreground">
           <Settings className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Settings className="h-5 w-5 text-primary" />
@@ -70,7 +70,7 @@ export function EditTripDialog({ trip }: { trip: Trip }) {
             <Label htmlFor="edit-destination">Destination</Label>
             <Input id="edit-destination" name="destination" defaultValue={trip.destination || ""} className="h-11" />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label htmlFor="edit-start_date">Start date</Label>
               <Input id="edit-start_date" name="start_date" type="date" defaultValue={trip.start_date || ""} className="h-11" />
@@ -80,7 +80,7 @@ export function EditTripDialog({ trip }: { trip: Trip }) {
               <Input id="edit-end_date" name="end_date" type="date" defaultValue={trip.end_date || ""} className="h-11" />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label htmlFor="edit-budget">Budget ({getCurrencySymbol(currency)})</Label>
               <Input

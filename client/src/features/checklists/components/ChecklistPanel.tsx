@@ -3,6 +3,7 @@ import {
   DndContext,
   closestCenter,
   PointerSensor,
+  TouchSensor,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
@@ -128,6 +129,7 @@ function ChecklistCard({ checklist, tripId }: { checklist: Checklist; tripId: st
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 5 } }),
   );
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -242,8 +244,8 @@ function SortableChecklistItemRow({ item, checklistId, onToggle, onDelete, onAss
       className="group flex items-center gap-2 rounded-lg px-2 py-1.5 -mx-1 hover:bg-muted/30 transition-colors"
     >
       {canEdit && (
-        <span {...attributes} {...listeners} className="cursor-grab active:cursor-grabbing">
-          <GripVertical className="h-3.5 w-3.5 text-muted-foreground/40" />
+        <span {...attributes} {...listeners} className="cursor-grab active:cursor-grabbing p-1 -m-1">
+          <GripVertical className="h-4 w-4 text-muted-foreground/40" />
         </span>
       )}
       <Checkbox
@@ -260,7 +262,7 @@ function SortableChecklistItemRow({ item, checklistId, onToggle, onDelete, onAss
       {canEdit ? (
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0">
+            <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0">
               {assignee ? (
                 <Avatar className="h-5 w-5">
                   <AvatarFallback className="bg-primary/10 text-[8px] font-medium text-primary">
@@ -309,8 +311,8 @@ function SortableChecklistItemRow({ item, checklistId, onToggle, onDelete, onAss
       )}
 
       {canEdit && (
-        <Button variant="ghost" size="icon" className="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity" onClick={() => onDelete.mutate({ checklistId, itemId: item.id })}>
-          <Trash2 className="h-3 w-3" />
+        <Button variant="ghost" size="icon" className="h-8 w-8 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" onClick={() => onDelete.mutate({ checklistId, itemId: item.id })}>
+          <Trash2 className="h-3.5 w-3.5" />
         </Button>
       )}
     </div>

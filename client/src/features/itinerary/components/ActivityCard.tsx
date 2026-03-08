@@ -129,11 +129,11 @@ function ActivityDetail({ activity, tripId, currencySymbol, onClose }: { activit
         )}
         {canEdit && (
           <div className="flex gap-2 pt-1">
-            <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => setEditing(true)}>
+            <Button size="sm" variant="outline" className="h-9 text-xs" onClick={() => setEditing(true)}>
               Edit
             </Button>
-            <Button size="sm" variant="ghost" className="h-7 text-xs text-destructive hover:text-destructive" onClick={handleDelete}>
-              <Trash2 className="h-3 w-3" />
+            <Button size="sm" variant="ghost" className="h-9 text-xs text-destructive hover:text-destructive" onClick={handleDelete}>
+              <Trash2 className="h-3.5 w-3.5" />
             </Button>
           </div>
         )}
@@ -184,10 +184,10 @@ function ActivityDetail({ activity, tripId, currencySymbol, onClose }: { activit
         <Textarea name="notes" defaultValue={activity.notes || ""} className="text-xs mt-1" rows={2} />
       </div>
       <div className="flex gap-2">
-        <Button type="submit" size="sm" className="h-7 text-xs" disabled={updateActivity.isPending}>
+        <Button type="submit" size="sm" className="h-9 text-xs" disabled={updateActivity.isPending}>
           Save
         </Button>
-        <Button type="button" size="sm" variant="ghost" className="h-7 text-xs" onClick={() => setEditing(false)}>
+        <Button type="button" size="sm" variant="ghost" className="h-9 text-xs" onClick={() => setEditing(false)}>
           Cancel
         </Button>
       </div>

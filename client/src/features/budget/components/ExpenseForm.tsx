@@ -80,7 +80,7 @@ export function AddExpenseDialog({ tripId, currencySymbol = "\u20B9" }: { tripId
             <Label htmlFor="exp-title">Title</Label>
             <Input id="exp-title" name="title" placeholder="Dinner at..." required className="h-11" />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label htmlFor="exp-amount">Amount ({currencySymbol})</Label>
               <Input id="exp-amount" name="amount" type="number" step="0.01" min="0.01" required placeholder="0.00" className="h-11" />

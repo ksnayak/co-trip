@@ -33,7 +33,7 @@ export function CommentThread({ tripId, targetType, targetId }: Props) {
     <div className="space-y-3">
       {comments && comments.length > 0 ? (
         comments.map((comment) => (
-          <div key={comment.id} className="flex gap-2.5">
+          <div key={comment.id} className="group flex gap-2.5">
             <Avatar className="h-7 w-7 shrink-0">
               <AvatarFallback className="text-[10px]">
                 {comment.author?.display_name?.[0]?.toUpperCase() || comment.author?.email?.[0]?.toUpperCase() || "?"}
@@ -49,23 +49,23 @@ export function CommentThread({ tripId, targetType, targetId }: Props) {
               <p className="text-sm text-foreground/80">{comment.body}</p>
             </div>
             {comment.author_id === user?.id && (
-              <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0 opacity-0 group-hover:opacity-100" onClick={() => deleteComment.mutate(comment.id)}>
+              <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100" onClick={() => deleteComment.mutate(comment.id)}>
                 <Trash2 className="h-3 w-3" />
               </Button>
             )}
           </div>
         ))
       ) : !showInput ? (
-        <button className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground" onClick={() => setShowInput(true)}>
+        <button className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground py-2" onClick={() => setShowInput(true)}>
           <MessageSquare className="h-3.5 w-3.5" />
           Add a comment
         </button>
       ) : null}
 
       {(showInput || (comments && comments.length > 0)) && (
-        <div className="flex gap-2">
-          <Textarea value={body} onChange={(e) => setBody(e.target.value)} placeholder="Write a comment..." className="min-h-[60px] text-sm" onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSubmit(); } }} />
-          <Button size="sm" onClick={handleSubmit} disabled={!body.trim() || createComment.isPending} className="self-end">
+        <div className="flex flex-col sm:flex-row gap-2">
+          <Textarea value={body} onChange={(e) => setBody(e.target.value)} placeholder="Write a comment..." className="min-h-[60px] text-sm flex-1" onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSubmit(); } }} />
+          <Button size="sm" onClick={handleSubmit} disabled={!body.trim() || createComment.isPending} className="self-end sm:self-end">
             Post
           </Button>
         </div>

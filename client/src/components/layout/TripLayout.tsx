@@ -33,9 +33,9 @@ export function TripLayout() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
         <Skeleton className="h-8 w-64 mb-2" />
         <Skeleton className="h-4 w-48 mb-6" />
-        <div className="flex gap-2">
+        <div className="flex gap-2 overflow-x-auto">
           {Array.from({ length: 6 }).map((_, i) => (
-            <Skeleton key={i} className="h-9 w-24" />
+            <Skeleton key={i} className="h-9 w-24 shrink-0" />
           ))}
         </div>
       </div>
@@ -52,7 +52,7 @@ export function TripLayout() {
     <TripRoleProvider role={role}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6">
         {/* Back link */}
-        <Link to="/dashboard" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4">
+        <Link to="/dashboard" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4 py-2 -my-2">
           <ArrowLeft className="h-3.5 w-3.5" />
           Back to trips
         </Link>

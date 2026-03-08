@@ -54,7 +54,7 @@ export function CreateTripDialog() {
           <span className="sm:hidden">New</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Sparkles className="h-5 w-5 text-primary" />
@@ -71,7 +71,7 @@ export function CreateTripDialog() {
             <Label htmlFor="destination">Destination</Label>
             <Input id="destination" name="destination" placeholder="Rome, Italy" className="h-11" />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label htmlFor="start_date">Start date</Label>
               <Input id="start_date" name="start_date" type="date" className="h-11" />
@@ -81,7 +81,7 @@ export function CreateTripDialog() {
               <Input id="end_date" name="end_date" type="date" className="h-11" />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="grid gap-2">
               <Label htmlFor="budget">Budget ({getCurrencySymbol(currency)})</Label>
               <Input id="budget" name="budget" type="number" step="0.01" min="0" placeholder="0.00" className="h-11" />

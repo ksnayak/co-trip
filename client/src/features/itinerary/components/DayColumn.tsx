@@ -46,7 +46,7 @@ export function DayColumn({ day, tripId, currencySymbol = "\u20B9" }: { day: Iti
   };
 
   return (
-    <div className="w-72 shrink-0">
+    <div className="w-[85vw] sm:w-72 shrink-0">
       <div className="mb-3 flex items-center justify-between rounded-lg bg-card/80 border border-border/50 px-3 py-2.5">
         <div>
           <p className="text-sm font-semibold">
