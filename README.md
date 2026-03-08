@@ -2,6 +2,8 @@
 
 Collaborative trip planning platform. Build itineraries, track budgets, manage reservations, and plan trips with your travel crew.
 
+**Live Demo**: [https://co-trip-wine.vercel.app](https://co-trip-wine.vercel.app)
+
 ## Features
 
 - **Itinerary Board** — Drag-and-drop daily planner with activities, times, and locations
@@ -10,8 +12,11 @@ Collaborative trip planning platform. Build itineraries, track budgets, manage r
 - **Checklists** — Packing lists, to-dos, and custom checklists with assignees
 - **Reservations** — Track hotels, flights, restaurants with confirmation codes
 - **File Sharing** — Upload and organize trip documents and photos
+- **Expense Splitting** — Equal or custom splits among trip members with settlement tracking
+- **Multi-currency Support** — INR, USD, EUR, GBP, JPY, AUD, CAD, THB
 - **Role-based Access** — Owner, editor, and viewer roles with granular permissions
 - **Invite System** — Email-based invitations with tokenized accept flow
+- **Optimistic Updates** — All mutations update UI instantly with rollback on failure
 
 ## Tech Stack
 
@@ -101,6 +106,6 @@ VITE_API_URL=http://localhost:3001
 
 ## Deployment
 
-- **Frontend**: Deploy `client/` to Vercel
-- **Backend**: Deploy `server/` to Render (free tier)
-- Set environment variables on each platform
+- **Frontend**: Deployed on [Vercel](https://co-trip-wine.vercel.app) (`client/`)
+- **Backend**: Deployed on Render (`server/`)
+- **Database**: Hosted on Supabase
